@@ -1,0 +1,45 @@
+#init
+
+global slot_symbols
+import time
+import random
+slot_symbols = ["7", "💖" , "🌙 "]
+credits=100
+
+def slot_machine():
+    print(" Welcome to the slot machine! ")
+    print("These are your symbols: " + str(slot_symbols))
+    while True:
+        global credits
+        spin=input("Would you like to spin or quit? (Press -s- for spin or -q- for quit)")
+        if spin=="s":
+            credits=credits-5
+            print("spinning...")
+            time.sleep(2)
+            print("spinning...")
+            time.sleep(2)
+            print("spinning...")
+            time.sleep(2)
+            s1=random.choice(slot_symbols)
+            s2=random.choice(slot_symbols)
+            s3=random.choice(slot_symbols)
+            if s1=="7" and s2=="7" and s3=="7":
+                print("You spun: " +s1+s2+s3)
+                credits=credits+1000
+                print("You won the JACKPOT!")
+                print("You have: " + str(credits)+ " credits")
+            elif s1 == s2 and s2 == s3:
+                print("You spun: " +s1+s2+s3)
+                credits=credits+20
+                print("You win!")
+                print("You have: " + str(credits)+ " credits")
+            else:
+                print("Sorry, you lose.")
+                print("You have: " + str(credits)+ " credits")
+        if spin=="q":
+            print("Goodbye, thank you for playing!")
+            print("You had: " + str(credits)+ " credits")
+            break
+
+
+slot_machine()
