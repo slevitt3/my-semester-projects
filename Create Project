@@ -1,0 +1,77 @@
+#AP Create Task - Starbucks Drink Generator
+#Drinks and Categories taken from the Starbucks Website - https://www.starbucks.com/menu
+
+
+#Init
+drink_list= ["Cold Coffee","Hot Coffee","Cold tea","Hot Tea","Refreshers","Frappuccino","Energy Drinks","Other Drinks"]
+iced_coffee = ["Cold Brew","Vanilla Sweet Cream Cold Brew","Salted Caramel Cream Cold Brew", "Chocolate Cream Cold Brew","Nondairy Vanilla Sweet Cream Cold Brew","Nondairy Salted Caramel Cream Cold Brew","Cold Brew with Nondairy Vanilla Sweet Cream Cold Foam","Nondairy Chocolate Cream Cold Brew","Pistachio Cream Cold Brew","Nitro Cold Brew","Vanilla Sweet Cream Nitro Cold Brew","Iced Coffee","Iced Coffee Cloiver Vertica","Iced Shaken Espresso","Iced Brown Sugar Shaken Espresso","Iced Hazlenut Oatmilk Shaken Espresso","iced Espresso","Iced Caffe Americano","Iced Caffe Latte","Iced Lavender Oatmilk Latte ","Iced Starbucks Blonde Vanilla Latte","Iced Cinnamon Dolce Latte","Iced Pistachio Latte","Iced Caffe Mocha","Iced White Chocolate Mocha","Iced Caramel Macchiato","Iced Flat White"]
+hot_coffee = ["Blonde Roast-Sunsera" , "Featured Medium Roast-Pike Place Roast" , "Featured Dark Roast" , "Decaf Pike Place Roast" , "Caffe Misto" , "Caffe Americano", "Cafe Latte" , "Lavender Oatmilk Latte" , "Cinnamon Dolce Latte" , "Starbucks Blonde Vanilla Latte" , "Pistachio Latte" , "Cappuchino" , "Caffe Mocha" , "White Chocolate Mocha" , "Espresso Maccihato" , "Caramel Macchiato" , "Flat White" , "Cortado" , "Brown Sugar Oatmilk Cortado" ,"Espresso Con Panna"]
+iced_tea = ["Iced Chai Latte" , "Iced Cherry Chai Latte" , "Iced Lavender Cream Oatmilk Matcha" , "Iced Matcha Latte" , "Iced London Fog Latte" , "Iced Black Tea" , "Iced Black Tea Lemonade" , "Iced Green Tea" , "Iced Green Tea Lemonade" , "Iced Peach Green Tea" , "Iced Peach Green Tea Lemonade", "Iced Passion Tango Tea" , "Iced Passion Tango Tea Lemonade"]
+hot_tea = ["Chai Latte" , "Matcha Latte" , "London Fog Latte", "Honey Citrus Mint Tea" , "Royal English Breakfast Tea" , "Emperor's Clouds & Mist Tea" , "Mint Majesty Tea" , "Earl Grey Tea" , "Chamomile Mint Blossom Tea" , "Chai Tea"]
+refresher_drinks = ["Strawberry Acai Lemonade Refresher" , "Mango Dragonfruit Lemonade Refresher" , "Blackberry Sage Lemonade Refresher" , "Pink Drink" , "Dragon Drink" , "Midnight Drink" , "Strawberry Acai Refresher" , "Mango Dragonfruit Refresher" , "Blackberry Sage Refresher"]
+frappuccino_drinks = ["Caramel Ribbon Crunch Frappuccino" , "Caramel Frappuccino" , "Mocha Cookie Crumble Frappuccino" , "Mocha Frappuccino" , "Coffee Fappuccino" , "Pistachio Frappuccino" , "Lavender Creme Frappuccino" , "Vanilla Bene Creme Frappuccino" , "Strawberry Creme Frappuccino" , "Matcha Creme Frappuccino" , "Pistachio Creme Frappuccino"]
+energy_drink = ["Melon Burst Iced Energy" , "Tropical Citrus Iced Energy" , "Frozen Tropical Citrus Iced Energy"]
+other_drink = ["Hot Chocolate" , "Lemonade" , "Blended Strawberry Lemonade" , "Cold Milk" , "Steamed Milk" , "Vanilla Creme" , "Pistachio Creme" , "Steamed Apple Juice" , "Caramel Apple Spice"]
+filtered_lists = []
+#Functions
+
+#Main
+print("Welcome to Starbucks Drink Reccomender!")
+drink_type = input("Please choose what type of drink you would like: Coffee, Tea, Refresher, Frappuccino, Energy Drink, Other")
+if drink_type == "Coffee":
+    coffee_temp = input("You have choosen coffee! Would you like hot or iced beverage?")
+    def c_t(temperature):
+        if temperature == "Hot":
+            for i in range(len(hot_coffee)):
+                filtered_lists.append(hot_coffee[i])
+            print(filtered_lists)
+
+        elif temperature== "Iced":
+            for i in range (len (iced_coffee)):
+                filtered_lists.append (iced_coffee[i])
+            print(filtered_lists)
+        else:
+            print("ERROR - Please enter 'Hot' or 'Iced'!")
+    c_t(coffee_temp)
+elif drink_type == "Tea":
+    tea_temp = input("You have choosen tea! Would you like hot or iced beverage?")
+    def t_t(temperature):
+        if temperature == "Hot":
+            for i in range (len(hot_tea)):
+                filtered_lists.append (hot_tea[i])
+            print(filtered_lists)
+
+        elif temperature == "Iced":
+            for i in range (len(iced_tea)):
+                filtered_lists.append(iced_tea[i])
+            print(filtered_lists)
+
+        else:
+            print("ERROR - Please enter 'Hot' or 'Iced'!")
+    t_t(tea_temp)
+elif drink_type == "Refresher":
+    print("You have choosen Refresher!")
+    for i in range(len(refresher_drinks)):
+        filtered_lists.append(refresher_drinks[i])
+    print(filtered_lists)
+
+elif drink_type == "Frappuccino":
+    print("You have choosen Frappuccino!")
+    for i in range(len(frappuccino_drinks)):
+        filtered_lists.append(frappuccino_drinks[i])
+    print(filtered_lists)
+
+elif drink_type == "Energy Drink":
+    print("You have choosen Energy Drink!")
+    for i in range(len(energy_drink)):
+        filtered_lists.append(energy_drink[i])
+    print(filtered_lists)
+
+elif drink_type == "Other":
+    print("You have choosen other!")
+    for i in range(len(other_drink)):
+        filtered_lists.append(other_drink[i])
+    print(filtered_lists)
+
+else:
+    print("ERROR - Please enter a valid drink type.")
